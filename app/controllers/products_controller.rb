@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
     #if user doesnt exist , create it
     user = User.where(email: params['email']).first_or_create!
     products = JSON.parse params['products']
-    binding.pry
     products.each do |prd|
       prod = Product.where(shufersal_id: prd['shufersal_id']).first_or_create!
       prod.update_attributes!( name: prd['name'], price: prd['price'], image: prd['img'])
