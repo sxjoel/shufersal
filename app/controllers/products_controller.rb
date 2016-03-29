@@ -6,17 +6,18 @@ class ProductsController < ApplicationController
   end
 
   def create
-    prod = Product.first_or_create!(product_params)
     #if user doesnt exist , create it
-    user = User.first_or_create!(email: params['email'])
-    #if user doesnt exist, create it, else just update amount
-    user_product = UserProduct.first_or_create!(user_id: user.id, product_id: prod.id)
-    UserProduct.increment_counter(:quantity, user_product.id)
-    render json: prod
+    user = User.where(email: params['email']).first_or_create!
+    params['products'].each do |prd|
+      prod = Product.where(shufersal_id: prd['shufersal_id']).first_or_create!
+      prod.update_attributes!( name: prd['name'], um: prd['um'], remarks: prd['remarks'], price: prd['price'])
+      #if user doesnt exist, create it, else just update amount
+      user_product = UserProduct.where(user_id: user.id, product_id: prod.id).first_or_create!
+      UserProduct.increment_counter(:quantity, user_product.id)
+    end
+    render text: 'OK'
   end
 
-  def product_params
-    params.require(:product).permit!
-  end
+
 
 end

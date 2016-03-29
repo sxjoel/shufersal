@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :users_products
   end
 
+  get 'admin', to: 'admin#index'
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
