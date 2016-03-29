@@ -1,5 +1,5 @@
 <div>
-  <div class="container">
+  <div class="container" style="margin-top: 100px;">
     <table class="table" >
       <thead>
       <tr>
@@ -7,6 +7,7 @@
         <th>מחיר</th>
         <th>מזמינים</th>
         <th>כמות</th>
+        <th>תמונה</th>
       </tr>
       </thead>
 
@@ -16,6 +17,7 @@
             <td><%= product['price'] %></td>
             <td><%= product['user_names'].join(",") %></td>
             <td><%= product['quantity'] %></td>
+            <td><img src="<%= product['img'] %>"></td>
           </tr>
       <% end %>
     </table>

@@ -14,6 +14,7 @@ class Product < ActiveRecord::Base
       result[product.shufersal_id]['product_name'] = product.name
       result[product.shufersal_id]['quantity'] =  result[product.shufersal_id]['quantity'].to_i + UserProduct.where(user_id: user.id, product_id: product.id).first.quantity.to_i
       result[product.shufersal_id]['price'] = product.price
+      result[product.shufersal_id]['img'] = product.img
       # result[product.shufersal_id]['product']['quantity'] +=
     end
     result.values
