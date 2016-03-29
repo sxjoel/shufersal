@@ -16,9 +16,11 @@ class ProductsController < ApplicationController
   def create
     #if user doesnt exist , create it
     user = User.where(email: params['email']).first_or_create!
-    params['products'].each do |prd|
+    products = JSON.parse params['products']
+    binding.pry
+    products.each do |prd|
       prod = Product.where(shufersal_id: prd['shufersal_id']).first_or_create!
-      prod.update_attributes!( name: prd['name'], um: prd['um'], remarks: prd['remarks'], price: prd['price'], image: prd['imageo'])
+      prod.update_attributes!( name: prd['name'], price: prd['price'], image: prd['img'])
       #if userproduct doesnt exist, create it, else just update amount
       user_product = UserProduct.where(user_id: user.id, product_id: prod.id).first_or_create!
       user_product.update_attribute(:quantity, prd['quantity']) if prd['quantity'].present?
