@@ -7,5 +7,7 @@ class CreateUserProducts < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    # add_foreign_key :user_product, :user
+    # add_foreign_key :user_product, :product
   end
 end

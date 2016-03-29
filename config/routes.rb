@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  namespace :api do
+  scope :api do
     resources :products
     resources :users
     resources :users_products
