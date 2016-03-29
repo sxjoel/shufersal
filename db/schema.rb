@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20160329095139) do
     t.datetime "updated_at",                           null: false
     t.string   "name"
     t.decimal  "price",        precision: 8, scale: 2
-    t.string   "image"
+    t.string   "img"
   end
 
   create_table "user_products", force: :cascade do |t|
