@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
       result[product.shufersal_id]['user_names'].push(user.name + " ")
       result[product.shufersal_id]['product'] = product
     end
-    render json: result
+    render json: result.values
   end
 
   def create
