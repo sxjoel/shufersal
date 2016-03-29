@@ -1,15 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
-    product_users = UserProduct.pluck(:product_id, :user_id)
-    result = {}
-    product_users.each do |product_user|
-      product = Product.find(product_user[0])
-      user = User.find(product_user[1])
-      result[product.shufersal_id] = {'user_names'=> []} if !result.has_key?(product.shufersal_id)
-      result[product.shufersal_id]['user_names'].push(user.name + " ")
-      result[product.shufersal_id]['product'] = product
-    end
+    result = Product.get_products
     render json: result
   end
 

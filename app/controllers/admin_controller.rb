@@ -1,7 +1,7 @@
 class AdminController < ApplicationController
 
   def index
-    @products = Product.all
+    @products = Product.get_admin_products
   end
 
 end

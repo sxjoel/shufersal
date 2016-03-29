@@ -1,6 +1,25 @@
 <div>
+  <div class="container">
+    <table class="table" >
+      <thead>
+      <tr>
+        <th>שם המוצר</th>
+        <th>מחיר</th>
+        <th>מזמינים</th>
+        <th>כמות</th>
+      </tr>
+      </thead>
 
-<% @products.each do |product| %>
-  <div> <%= product.name %></div>
-<% end %>
+      <% @products.each do |product| %>
+          <tr>
+            <td><%= product['product_name'] %></td>
+            <td><%= product['price'] %></td>
+            <td><%= product['user_names'].join(",") %></td>
+            <td><%= product['quantity'] %></td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+
+
 </div>
