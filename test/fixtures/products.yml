@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shufersal_id: MyString
+  um: MyString
+  remarks: MyString
+
+two:
+  shufersal_id: MyString
+  um: MyString
+  remarks: MyString
